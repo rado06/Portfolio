@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirina Rado | Support Client SaaS & E-commerce</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth transition for active classes */
+        .transition-all-300 {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Custom scrollbar for premium dashboard feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Pulse animation for active SLA */
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-[#f8fafc] text-slate-800 font-sans min-h-screen flex flex-col antialiased">
+
+    <!-- TOP ANNOUNCEMENT BAR (SLA TICKER) -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 flex justify-between items-center border-b border-slate-800 shrink-0 z-50">
+        <div class="flex items-center gap-2">
+            <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse-subtle"></span>
+            <span><strong>SLA Actif :</strong> Temps de prise en charge garanti < 1h | Réponse moyenne réelle : <strong>15 minutes</strong></span>
+        </div>
+        <div class="hidden md:flex items-center gap-4 text-[11px] font-mono">
+            <span>DISPONIBILITÉ : FREELANCE</span>
+            <span>ZONE : EUROPE / AFRIQUE (UTC+3)</span>
+        </div>
+    </div>
+
+    <!-- MAIN DASHBOARD WRAPPER -->
+    <div class="flex flex-1 overflow-hidden h-screen max-h-[calc(100vh-32px)]">
+        
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-slate-900 text-slate-400 flex flex-col justify-between shrink-0 border-r border-slate-800">
+            <div>
+                <!-- User Profile Intro Header -->
+                <div class="p-6 border-b border-slate-800">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brand-500/20">
+                            NR
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-slate-100 text-sm leading-tight">Nirina Rado</h2>
+                            <p class="text-[11px] text-brand-500 font-medium">Support SaaS & E-commerce</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation List -->
+                <nav class="p-4 space-y-1">
+                    <button onclick="switchTab('overview')" id="btn-overview" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all-300 bg-slate-800 text-white shadow-sm">
+                        <i class="fa-solid fa-chart-line text-brand-500"></i>
+                        <span>Vue d'ensemble</span>
+                    </button>
+                    <button onclick="switchTab('resolutions')" id="btn-resolutions" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all-300 text-slate-400 hover:bg-slate-800 hover:text-slate-100">
+                        <i class="fa-solid fa-ticket"></i>
+                        <span>Résolution de Tickets</span>
+                        <span class="ml-auto bg-brand-500/20 text-brand-500 text-[10px] font-bold px-2 py-0.5 rounded-full">3 Cas</span>
+                    </button>
+                    <button onclick="switchTab('techstack')" id="btn-techstack" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all-300 text-slate-400 hover:bg-slate-800 hover:text-slate-100">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <span>Outils & Adaptabilité</span>
+                    </button>
+                    <button onclick="switchTab('contact')" id="btn-contact" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all-300 text-slate-400 hover:bg-slate-800 hover:text-slate-100">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Contact & Devis</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Sidebar Footer Info -->
+            <div class="p-4 border-t border-slate-800 text-xs">
+                <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 space-y-1">
+                    <div class="text-slate-500 font-semibold uppercase text-[9px] tracking-wider">Origine Professionnelle</div>
+                    <div class="text-slate-300 font-medium text-[11px]">Technicien Helpdesk</div>
+                    <div class="text-[10px] text-brand-500">L'agilité au service de vos clients SaaS et E-commerce.</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- DASHBOARD WORKSPACE -->
+        <main class="flex-1 overflow-y-auto flex flex-col">
+            
+            <!-- SECTION : OVERVIEW (VUE D'ENSEMBLE) -->
+            <section id="tab-overview" class="tab-content p-8 space-y-8 max-w-5xl mx-auto w-full">
+                <!-- Header -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Tableau de bord de Performance</h1>
+                        <p class="text-slate-500 text-sm mt-1">Un support client fiable, réactif et structuré pour offrir la meilleure expérience à vos clients SaaS et E-commerce.</p>
+                    </div>
+                    <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full border border-emerald-200 flex items-center gap-1.5 shrink-0">
+                        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse-subtle"></span> Prêt pour de nouvelles missions
+                    </span>
+                </div>
+
+                <!-- Translation Message Box -->
+                <div class="bg-gradient-to-r from-brand-500 to-indigo-600 text-white rounded-2xl p-6 shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+                    <div class="max-w-3xl space-y-2">
+                        <span class="bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider">Ma Philosophie</span>
+                        <h2 class="text-xl font-bold">"Je ne ferme pas de simples tickets, je protège votre rétention client."</h2>
+                        <p class="text-brand-50 text-sm leading-relaxed">
+                            Fort de mon expérience en Helpdesk où j'ai géré des infrastructures complexes et des flux intenses sous des SLA de fer, je transpose aujourd'hui cette méthodologie pour chouchouter vos clients et résoudre leurs pannes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Metrics Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Metric 1: Response Time -->
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-2 relative overflow-hidden">
+                        <div class="flex justify-between items-center text-slate-400">
+                            <span class="text-xs font-bold uppercase tracking-wider">Réponse Réelle (TTO)</span>
+                            <i class="fa-solid fa-bolt text-amber-500"></i>
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-3xl font-extrabold text-slate-900">&le; 15 min</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-amber-500 h-full w-[90%] rounded-full"></div>
+                        </div>
+                        <p class="text-[11px] text-slate-500">SLA contractuel max : <strong>1 heure</strong></p>
+                    </div>
+
+                    <!-- Metric 2: Resolutions -->
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-2">
+                        <div class="flex justify-between items-center text-slate-400">
+                            <span class="text-xs font-bold uppercase tracking-wider">Résolutions / Jour</span>
+                            <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-3xl font-extrabold text-slate-900">30+</span>
+                            <span class="text-xs text-slate-500">tickets N1</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-full w-[75%] rounded-full"></div>
+                        </div>
+                        <p class="text-[11px] text-slate-500">Sur un flux d'équipe de <strong>80/jour</strong></p>
+                    </div>
+
+                    <!-- Metric 3: Target Resolution Speed -->
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-2">
+                        <div class="flex justify-between items-center text-slate-400">
+                            <span class="text-xs font-bold uppercase tracking-wider">Temps de Traitement</span>
+                            <i class="fa-solid fa-hourglass-half text-brand-500"></i>
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-3xl font-extrabold text-slate-900">&le; 30 min</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-brand-500 h-full w-[85%] rounded-full"></div>
+                        </div>
+                        <p class="text-[11px] text-slate-500">De la prise en charge à l'escalade</p>
+                    </div>
+
+                    <!-- Metric 4: Customer Satisfaction -->
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-2">
+                        <div class="flex justify-between items-center text-slate-400">
+                            <span class="text-xs font-bold uppercase tracking-wider">Satisfaction Visée (CSAT)</span>
+                            <i class="fa-solid fa-star text-yellow-500 animate-pulse-subtle"></i>
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-3xl font-extrabold text-slate-900">98.5%</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-yellow-500 h-full w-[98%] rounded-full"></div>
+                        </div>
+                        <p class="text-[11px] text-slate-500">Basé sur les standards ITIL</p>
+                    </div>
+                </div>
+
+                <!-- Skills & Framework Alignment Matrix -->
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
+                    <h3 class="font-bold text-lg text-slate-900 mb-4">La traduction de mes compétences vers vos besoins</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Card 1 -->
+                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-100 space-y-3">
+                            <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">01</div>
+                            <h4 class="font-bold text-sm text-slate-800">Rigueur des SLAs</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                En entreprise, un SLA dépassé coûte cher. J'apporte cette culture de la réactivité immédiate et de la qualification minutieuse pour vos utilisateurs (SaaS).
+                            </p>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-100 space-y-3">
+                            <div class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center font-bold">02</div>
+                            <h4 class="font-bold text-sm text-slate-800">Diagnostic Méthodique</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                Je ne devine pas, j'investigue. Qu'il s'agisse d'un problème de cache navigateur ou de cookies tiers bloquant un paiement Shopify, j'isole l'incident pas à pas.
+                            </p>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-100 space-y-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">03</div>
+                            <h4 class="font-bold text-sm text-slate-800">Support Pédagogique</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                Gérer la perte d'identifiants sensible en Helpdesk m'a appris à guider les utilisateurs sans frustration, garantissant un onboarding fluide et limitant le churn.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION : RESOLUTIONS (TICKETS INTERACTIFS) -->
+            <section id="tab-resolutions" class="tab-content hidden p-8 space-y-8 max-w-5xl mx-auto w-full">
+                <div>
+                    <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Centre de Résolution de Tickets</h1>
+                    <p class="text-slate-500 text-sm mt-1">Découvrez comment je résous concrètement des problématiques techniques quotidiennes. Cliquez sur un ticket pour l'inspecter.</p>
+                </div>
+
+                <!-- Main Grid Layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Left : Ticket List -->
+                    <div class="lg:col-span-1 space-y-3">
+                        <!-- Ticket 1 button -->
+                        <button id="ticket-btn-1" onclick="selectTicket(1)" class="ticket-selector w-full text-left p-4 rounded-xl border border-brand-500 bg-brand-50/30 shadow-sm hover:shadow-md transition-all-300 flex flex-col gap-2">
+                            <div class="flex justify-between items-center w-full">
+                                <span class="bg-sky-100 text-sky-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">AUTHENTIFICATION & ACCÈS SAAS</span>
+                                <span class="text-[10px] font-mono text-slate-400">#TK-1001</span>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-xs line-clamp-2">Perte de mot de passe & accès</h3>
+                            <p class="text-slate-500 text-[11px] line-clamp-2">Comment réinitialiser en toute sécurité un compte bloqué pour restaurer l'accès.</p>
+                        </button>
+
+                        <!-- Ticket 2 button -->
+                        <button id="ticket-btn-2" onclick="selectTicket(2)" class="ticket-selector w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 shadow-sm hover:shadow-md transition-all-300 flex flex-col gap-2">
+                            <div class="flex justify-between items-center w-full">
+                                <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">E-COMMERCE CHECKOUT</span>
+                                <span class="text-[10px] font-mono text-slate-400">#TK-1002</span>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-xs line-clamp-2">Impossibilité de finaliser le panier client</h3>
+                            <p class="text-slate-500 text-[11px] line-clamp-2">Résoudre un blocage applicatif lié aux cookies tiers et au cache du navigateur.</p>
+                        </button>
+
+                        <!-- Ticket 3 button -->
+                        <button id="ticket-btn-3" onclick="selectTicket(3)" class="ticket-selector w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 shadow-sm hover:shadow-md transition-all-300 flex flex-col gap-2">
+                            <div class="flex justify-between items-center w-full">
+                                <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">TECH N2 / OPTIMISATION</span>
+                                <span class="text-[10px] font-mono text-slate-400">#TK-1003</span>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-xs line-clamp-2">Saturation d'espace disque & Chute d'application</h3>
+                            <p class="text-slate-500 text-[11px] line-clamp-2">Nettoyage technique à distance pour un terminal de synchronisation des ventes.</p>
+                        </button>
+                    </div>
+
+                    <!-- Right : Interactive Ticket Inspection Workspace -->
+                    <div class="lg:col-span-2 bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                        <!-- Top header of selected ticket -->
+                        <div class="p-6 border-b border-slate-100 bg-slate-50 flex justify-between items-center">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span id="ticket-badge" class="bg-sky-100 text-sky-800 text-xs font-bold px-2.5 py-1 rounded uppercase">AUTHENTIFICATION & ACCÈS SAAS</span>
+                                    <span id="ticket-id" class="text-xs font-mono text-slate-400">#TK-1001</span>
+                                </div>
+                                <h2 id="ticket-title" class="font-extrabold text-slate-900 text-base mt-2">Perte de mot de passe & accès</h2>
+                            </div>
+                            <div class="text-right">
+                                <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Résolu</span>
+                            </div>
+                        </div>
+
+                        <!-- Ticket Thread Content -->
+                        <div class="p-6 space-y-6 flex-1 max-h-[450px] overflow-y-auto">
+                            <!-- Step 1: User Issue -->
+                            <div class="flex gap-4">
+                                <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-600 text-xs shrink-0">
+                                    U
+                                </div>
+                                <div class="bg-slate-100 p-4 rounded-r-xl rounded-bl-xl text-xs space-y-1.5 max-w-lg">
+                                    <div class="font-bold text-slate-700">Utilisateur Impacté</div>
+                                    <p id="ticket-user-text" class="text-slate-600 leading-relaxed">
+                                        "Je n'arrive plus à me connecter à mon espace client. J'ai oublié mon mot de passe pour ma session active et mon e-mail de récupération ne semble pas fonctionner non plus. C'est urgent !"
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Diagnostic & Methodology -->
+                            <div class="border-l-2 border-brand-500 pl-4 space-y-2">
+                                <div class="text-[11px] font-bold text-brand-600 uppercase tracking-wider">Diagnostic & Logique</div>
+                                <p id="ticket-diagnostic-text" class="text-xs text-slate-600 leading-relaxed">
+                                    <strong>Ici, l'enjeu principal est la sécurité des données d'accès.</strong> En Helpdesk, nous gérons des requêtes critiques de sessions. Je commence par valider l'identité de l'utilisateur de manière sécurisée (protocole confidentiel). Ensuite, je procède à la réinitialisation côté console d'administration pour lui attribuer un accès temporaire sécurisé, avant de l'accompagner en direct pour la modification finale et l'activation du mot de passe définitif.
+                                </p>
+                            </div>
+
+                            <!-- Step 3: Nirina's Solution -->
+                            <div class="flex gap-4 justify-end">
+                                <div class="bg-brand-50 p-4 rounded-l-xl rounded-br-xl text-xs space-y-1.5 max-w-lg border border-brand-100">
+                                    <div class="font-bold text-brand-800 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-user-gear"></i> Nirina Rado
+                                    </div>
+                                    <p id="ticket-solution-text" class="text-slate-600 leading-relaxed">
+                                        "Action immédiate : Authentification de l'utilisateur validée en interne. Génération d'un mot de passe fort temporaire. Session à distance initiée pour guider pas-à-pas la sécurisation finale de sa boîte mail et de sa session logicielle, éliminant tout risque de blocage."
+                                    </p>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center font-bold text-white text-xs shrink-0">
+                                    NR
+                                </div>
+                            </div>
+
+                            <!-- Value for E-commerce / SaaS Box -->
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-start gap-3">
+                                <div class="text-brand-500 mt-0.5"><i class="fa-solid fa-lightbulb text-lg"></i></div>
+                                <div>
+                                    <div class="text-[11px] font-bold text-slate-800 uppercase tracking-wider">Pourquoi c'est crucial pour votre SaaS / Boutique</div>
+                                    <p id="ticket-value-text" class="text-xs text-slate-500 leading-relaxed mt-1">
+                                        Dans un SaaS B2B, la perte d'accès d'un collaborateur peut bloquer tout un workflow d'équipe. Ma réactivité de prise en charge assure un déblocage sécurisé ultra-rapide sans fragiliser la conformité de vos bases de données.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION : TECHSTACK (OUTILS & ADAPTABILITÉ) -->
+            <section id="tab-techstack" class="tab-content hidden p-8 space-y-8 max-w-5xl mx-auto w-full">
+                <!-- Header -->
+                <div>
+                    <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Outils maîtrisés & Adaptabilité SaaS</h1>
+                    <p class="text-slate-500 text-sm mt-1">Une prise en main rapide de nouveaux outils, combinée à une approche rigoureuse acquise en environnement professionnel.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Left : Tech Stack Inventory -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                            <h3 class="font-bold text-base text-slate-900">Mon Écosystème de Base (Rigueur ITIL)</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="p-3 bg-slate-50 rounded-lg flex items-center gap-3">
+                                    <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-bold"><i class="fa-solid fa-list-check"></i></span>
+                                    <div>
+                                        <div class="text-xs font-bold text-slate-800">ManageEngine SD+</div>
+                                        <div class="text-[10px] text-slate-400">Ticketing structure, SLAs complexes</div>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-slate-50 rounded-lg flex items-center gap-3">
+                                    <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-bold"><i class="fa-solid fa-envelope"></i></span>
+                                    <div>
+                                        <div class="text-xs font-bold text-slate-800">MS Outlook</div>
+                                        <div class="text-[10px] text-slate-400">Communication asynchrone claire</div>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-slate-50 rounded-lg flex items-center gap-3">
+                                    <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-bold"><i class="fa-solid fa-users"></i></span>
+                                    <div>
+                                        <div class="text-xs font-bold text-slate-800">MS Teams</div>
+                                        <div class="text-[10px] text-slate-400">Coordination & collaboration</div>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-slate-50 rounded-lg flex items-center gap-3">
+                                    <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-xs font-bold"><i class="fa-solid fa-desktop"></i></span>
+                                    <div>
+                                        <div class="text-xs font-bold text-slate-800">AnyDesk</div>
+                                        <div class="text-[10px] text-slate-400">Diagnostic à distance</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pre-trained to learn any tool block -->
+                        <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl p-6 shadow-md space-y-4">
+                            <h3 class="font-bold text-base text-slate-100 flex items-center gap-2">
+                                <i class="fa-solid fa-graduation-cap text-brand-500"></i> Prêt pour l'écosystème de votre Startup
+                            </h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Les outils de ticketing partagent tous le même paradigme : la gestion de files d'attente, la catégorisation d'incidents, et le respect du temps de traitement. Ayant maîtrisé les outils complexes comme <strong>ManageEngine ServiceDesk Plus</strong>, je m'adapte facilement à n'importe quel outil moderne (Zendesk, Intercom, Gorgias) ou interface E-commerce (Shopify, Stripe).
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="bg-slate-800 text-slate-300 text-[10px] font-mono px-2 py-1 rounded border border-slate-700">Shopify</span>
+                                <span class="bg-slate-800 text-slate-300 text-[10px] font-mono px-2 py-1 rounded border border-slate-700">Stripe</span>
+                                <span class="bg-slate-800 text-slate-300 text-[10px] font-mono px-2 py-1 rounded border border-slate-700">Zendesk</span>
+                                <span class="bg-slate-800 text-slate-300 text-[10px] font-mono px-2 py-1 rounded border border-slate-700">Gorgias</span>
+                                <span class="bg-slate-800 text-slate-300 text-[10px] font-mono px-2 py-1 rounded border border-slate-700">Notion / Confluence</span>
+                                <span class="bg-slate-800 text-slate-300 text-[10px] font-mono px-2 py-1 rounded border border-slate-700">Postman</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION : CONTACT & ESTIMATOR -->
+            <section id="tab-contact" class="tab-content hidden p-8 space-y-8 max-w-5xl mx-auto w-full">
+                <!-- Header -->
+                <div>
+                    <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Coordonnées & Tarifs</h1>
+                    <p class="text-slate-500 text-sm mt-1">Prenons contact directement pour définir comment je peux soulager vos équipes de support et sécuriser la satisfaction de vos clients.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Left : Personal Info & Contact details -->
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                            <h3 class="font-bold text-slate-900 text-base">Me Contacter Directement</h3>
+                            
+                            <div class="space-y-3">
+                                <a href="mailto:radonirina.support@gmail.com" class="flex items-center gap-3 p-4 bg-slate-50 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-all-300 border border-slate-100">
+                                    <span class="w-10 h-10 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-sm"><i class="fa-solid fa-envelope"></i></span>
+                                    <div>
+                                        <div class="text-[10px] text-slate-400 font-bold uppercase">Email Professionnel</div>
+                                        <div class="text-xs font-bold">radonirina.support@gmail.com</div>
+                                    </div>
+                                </a>
+
+                                <a href="https://www.linkedin.com/in/nirina-rado" target="_blank" class="flex items-center gap-3 p-4 bg-slate-50 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-all-300 border border-slate-100">
+                                    <span class="w-10 h-10 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-sm"><i class="fa-brands fa-linkedin"></i></span>
+                                    <div>
+                                        <div class="text-[10px] text-slate-400 font-bold uppercase">Profil LinkedIn</div>
+                                        <div class="text-xs font-bold">Nirina Rado</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Availability card -->
+                        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-3">
+                            <div class="flex items-center gap-2 text-emerald-600 font-bold text-xs uppercase">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse-subtle"></span> Status : Disponible
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-800">Prise de contact rapide</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                Je réponds généralement à vos emails en moins d'une heure. N'hésitez pas à m'envoyer un message sur LinkedIn pour planifier un rapide appel d'introduction de 15 minutes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right : Structured Pricing Grid (No form, real value) -->
+                    <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 space-y-6">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                            <h3 class="font-bold text-slate-900 text-base">Tarifs & Modalités de Mission</h3>
+                            <span class="bg-brand-100 text-brand-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Freelance</span>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <!-- Rate 1 -->
+                            <div class="p-4 bg-slate-50 rounded-lg border border-slate-100 flex justify-between items-center">
+                                <div>
+                                    <h4 class="font-bold text-xs text-slate-800">Tarif Journalier Moyen (TJM)</h4>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Pour des missions de renfort ou d'onboarding</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm font-extrabold text-slate-900">Sur Devis</div>
+                                    <div class="text-[9px] text-slate-400 uppercase font-mono">selon volume</div>
+                                </div>
+                            </div>
+
+                            <!-- Rate 2 -->
+                            <div class="p-4 bg-slate-50 rounded-lg border border-slate-100 flex justify-between items-center">
+                                <div>
+                                    <h4 class="font-bold text-xs text-slate-800">Forfaits Mensuels Adaptés</h4>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Idéal pour l'externalisation de vos flux N1</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm font-extrabold text-brand-600">Volume-Based</div>
+                                    <div class="text-[9px] text-slate-400 uppercase font-mono">Nombre de tickets</div>
+                                </div>
+                            </div>
+
+                            <!-- Special Offer Audit -->
+                            <div class="p-4 bg-gradient-to-tr from-brand-500/10 to-indigo-500/10 rounded-lg border border-brand-100 space-y-2">
+                                <div class="flex items-center gap-1.5 text-brand-700 font-bold text-xs">
+                                    <i class="fa-solid fa-gift"></i> Offre Découverte
+                                </div>
+                                <h4 class="font-bold text-xs text-slate-800">Audit découverte gratuit de votre support client</h4>
+                                <p class="text-[11px] text-slate-500 leading-relaxed">
+                                    En 30 minutes, j'analyse votre gestion des tickets et vos délais de réponse, puis je vous propose des pistes d'amélioration simples et rapidement applicables.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- BOTTOM FLOATING LIVE CHAT SIMULATOR -->
+    <div class="fixed bottom-4 right-4 z-50">
+        <!-- Chat Bubble Button -->
+        <button id="chat-bubble-btn" onclick="toggleChat()" class="w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-all-300 animate-pulse-subtle">
+            <i id="chat-icon" class="fa-solid fa-comments text-lg"></i>
+        </button>
+
+        <!-- Chat Box -->
+        <div id="chat-box" class="hidden absolute bottom-16 right-0 w-80 bg-white rounded-xl border border-slate-200 shadow-2xl overflow-hidden flex flex-col transition-all-300">
+            <!-- Header -->
+            <div class="p-4 bg-slate-900 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+                    <span class="font-bold text-xs">Support Live - Nirina Rado</span>
+                </div>
+                <button onclick="toggleChat()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <!-- Message Feed -->
+            <div class="p-4 flex-1 space-y-3 max-h-60 overflow-y-auto text-xs">
+                <div class="flex gap-2">
+                    <div class="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] shrink-0">NR</div>
+                    <div class="bg-slate-100 p-2 rounded-r-lg rounded-bl-lg text-slate-700">
+                        Bonjour ! Je suis Nirina. Actuellement en poste en Helpdesk (30+ résolutions par jour en direct), je prépare mon lancement freelance pour les SaaS & E-commerce. Comment puis-je vous aider aujourd'hui ?
+                    </div>
+                </div>
+                <!-- Dynamic user action simulation responses go here -->
+                <div id="chat-response-area" class="space-y-3"></div>
+            </div>
+            <!-- Quick Questions Buttons -->
+            <div class="p-3 bg-slate-50 border-t border-slate-100 flex flex-col gap-1.5">
+                <button onclick="simulateChatResponse(1)" class="w-full text-left bg-white border border-slate-200 hover:border-brand-500 hover:bg-brand-50 text-[11px] p-2 rounded transition-all-300 font-medium">
+                    🔍 "Comment gérez-vous un pic d'incidents ?"
+                </button>
+                <button onclick="simulateChatResponse(2)" class="w-full text-left bg-white border border-slate-200 hover:border-brand-500 hover:bg-brand-50 text-[11px] p-2 rounded transition-all-300 font-medium">
+                    🛠️ "Quels sont vos tarifs indicatifs ?"
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR DYNAMIC INTERACTIONS -->
+    <script>
+        // Tab switching logic
+        function switchTab(tabId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            
+            // Remove active classes from navigation buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-slate-800', 'text-white', 'shadow-sm');
+                btn.classList.add('text-slate-400');
+            });
+
+            // Show current active tab
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+
+            // Apply active styles to the selected button
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            activeBtn.classList.add('bg-slate-800', 'text-white', 'shadow-sm');
+            activeBtn.classList.remove('text-slate-400');
+        }
+
+        // Selected interactive ticket contents
+        const tickets = {
+            1: {
+                badge: "AUTHENTIFICATION & ACCÈS SAAS",
+                badgeClass: "bg-sky-100 text-sky-800",
+                id: "#TK-1001",
+                title: "Perte de mot de passe & accès",
+                userText: '"Je n\'arrive plus à me connecter à mon espace client. J\'ai oublié mon mot de passe pour ma session active et mon e-mail de récupération ne semble pas fonctionner non plus. C\'est urgent !"',
+                diagnostic: "<strong>Ici, l'enjeu principal est la sécurité des données d'accès.</strong> En Helpdesk, nous gérons des requêtes critiques de sessions. Je commence par valider l'identité de l'utilisateur de manière sécurisée (protocole confidentiel). Ensuite, je procède à la réinitialisation côté console d'administration pour lui attribuer un accès temporaire sécurisé, avant de l'accompagner en direct pour la modification finale et l'activation du mot de passe définitif.",
+                solution: "Action immédiate : Authentification de l'utilisateur validée en interne. Génération d'un mot de passe fort temporaire. Session à distance initiée pour guider pas-à-pas la sécurisation finale de sa boîte mail et de sa session logicielle, éliminant tout risque de blocage.",
+                value: "Dans un SaaS B2B, la perte d'accès d'un collaborateur peut bloquer tout un workflow d'équipe. Ma réactivité de prise en charge assure un déblocage sécurisé ultra-rapide sans fragiliser la conformité de vos bases de données."
+            },
+            2: {
+                badge: "E-COMMERCE CHECKOUT",
+                badgeClass: "bg-amber-100 text-amber-800",
+                id: "#TK-1002",
+                title: "Impossibilité de finaliser le panier client",
+                userText: '"Je tente de passer commande sur votre boutique depuis 10 minutes, mais le bouton de paiement Stripe reste grisé et le panier n\'affiche rien lors du clic. C\'est une commande importante."',
+                diagnostic: "<strong>Ce cas illustre un problème classique d'interaction côté client (Front-End).</strong> Ma méthodologie consiste à guider le client pour isoler l'origine : s'agit-il d'un bug d'affichage global ou local ? Je lui recommande de vider le cache ou d'utiliser une navigation privée pour éliminer un conflit de cookies obsolètes (un cas d'école résolu fréquemment en helpdesk sur des portails internes). Si le problème persiste, je remonte un log propre aux développeurs.",
+                solution: "Résolution : Identification d'un stockage de cache local altéré sur son navigateur après mise à jour de la passerelle. Vidage de cache initié avec explications simples en direct. Commande passée avec succès sous 10 minutes.",
+                value: "Pour un e-commerce, un bug de paiement non-résolu sous 15 minutes est un panier perdu à jamais. Ma faculté de diagnostic et mon empathie sécurisent directement votre taux de conversion."
+            },
+            3: {
+                badge: "TECH N2 / OPTIMISATION",
+                badgeClass: "bg-emerald-100 text-emerald-800",
+                id: "#TK-1003",
+                title: "Saturation d'espace disque & Chute d'application",
+                userText: '"Mon ordinateur d\'inventaire e-commerce s\'est bloqué complètement et ne parvient plus à synchroniser les stocks physiques de notre entrepôt de vente avec la plateforme. Bloqué au démarrage."',
+                diagnostic: "<strong>Il s'agit d'une interruption de service critique.</strong> J'utilse mon expertise helpdesk en diagnostics d'infrastructures. Je me connecte de manière sécurisée via AnyDesk et utilise l'analyseur d'espace TreeSize pour localiser les fichiers temporaires, caches de logs ou payloads en excès afin de libérer de l'espace sur l'appareil et relancer les services de synchronisation immédiatement.",
+                solution: "Action de secours : Prise en main AnyDesk. Analyse TreeSize révélant 45 Go de fichiers logs corrompus de l'application de synchro. Purge des dossiers obsolètes et reconfiguration de la rotation des logs. Remise en service opérationnelle immédiate.",
+                value: "Une rupture de synchronisation physique / e-commerce peut provoquer des ruptures de stock ou des surventes. Ma maîtrise des techniques distantes fiabilise votre logistique de bout en bout."
+            }
+        };
+
+        // Ticket selection logic
+        function selectTicket(id) {
+            const ticket = tickets[id];
+            if (!ticket) return;
+
+            // Update active states of selector buttons
+            document.querySelectorAll('.ticket-selector').forEach(btn => {
+                btn.classList.remove('border-brand-500', 'bg-brand-50/30');
+                btn.classList.add('border-slate-200');
+            });
+            const activeBtn = document.getElementById(`ticket-btn-${id}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-slate-200');
+                activeBtn.classList.add('border-brand-500', 'bg-brand-50/30');
+            }
+
+            // Update workspace content area
+            document.getElementById('ticket-badge').textContent = ticket.badge;
+            document.getElementById('ticket-badge').className = `${ticket.badgeClass} text-xs font-bold px-2.5 py-1 rounded uppercase`;
+            document.getElementById('ticket-id').textContent = ticket.id;
+            document.getElementById('ticket-title').textContent = ticket.title;
+            document.getElementById('ticket-user-text').textContent = ticket.userText;
+            document.getElementById('ticket-diagnostic-text').innerHTML = ticket.diagnostic;
+            document.getElementById('ticket-solution-text').textContent = ticket.solution;
+            document.getElementById('ticket-value-text').textContent = ticket.value;
+        }
+
+        // Simulated Adaptability Search Functionality
+        function testAdaptability() {
+            const input = document.getElementById('tool-search').value.trim().toLowerCase();
+            const resultBox = document.getElementById('search-result');
+            
+            if (!input) return;
+
+            resultBox.classList.remove('hidden');
+
+            // Hardcoded responses demonstrating adaptable logic
+            if (input.includes('zendesk') || input.includes('gorgias') || input.includes('intercom') || input.includes('freshdesk')) {
+                resultBox.className = "p-3 bg-brand-50 border border-brand-100 rounded-lg text-xs text-brand-800 space-y-1 transition-all-300";
+                resultBox.innerHTML = `
+                    <div class="font-bold"><i class="fa-solid fa-circle-check"></i> Prise en main en 1 heure chrono</div>
+                    <p class="text-[11px] text-brand-700 leading-relaxed">Ces outils partagent la même logique de file d'attente (Views/Inboxes) que <strong>ManageEngine ServiceDesk Plus</strong>. Je sais configurer des macros et optimiser les flux de réponse.</p>
+                `;
+            } else if (input.includes('stripe') || input.includes('paypal') || input.includes('payplug')) {
+                resultBox.className = "p-3 bg-brand-50 border border-brand-100 rounded-lg text-xs text-brand-800 space-y-1 transition-all-300";
+                resultBox.innerHTML = `
+                    <div class="font-bold"><i class="fa-solid fa-credit-card"></i> Gestion des Échecs de Paiement</div>
+                    <p class="text-[11px] text-brand-700 leading-relaxed">Je sais traquer les statuts des transactions via les tableaux de bord de paiement et analyser les webhooks échoués pour résoudre les dysfonctionnements de livraison.</p>
+                `;
+            } else if (input.includes('shopify') || input.includes('woocommerce') || input.includes('magento')) {
+                resultBox.className = "p-3 bg-brand-50 border border-brand-100 rounded-lg text-xs text-brand-800 space-y-1 transition-all-300";
+                resultBox.innerHTML = `
+                    <div class="font-bold"><i class="fa-solid fa-store"></i> Gestion d'écosystème E-commerce</div>
+                    <p class="text-[11px] text-brand-700 leading-relaxed">Modification de fiches produits, correction d'accès clients et suivi des commandes. Mes diagnostics helpdesk de pannes logicielles s'appliquent directement à ces workflows.</p>
+                `;
+            } else {
+                resultBox.className = "p-3 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-800 space-y-1 transition-all-300";
+                resultBox.innerHTML = `
+                    <div class="font-bold"><i class="fa-solid fa-graduation-cap"></i> Processus d'apprentissage validé</div>
+                    <p class="text-[11px] text-slate-600 leading-relaxed">L'outil <strong>"${document.getElementById('tool-search').value}"</strong> n'a pas de secret pour un technicien N1 habitué aux changements de versions en grand groupe. Je l'apprends et le maîtrise en moins de 48h.</p>
+                `;
+            }
+        }
+
+        // Chat Box Toggler
+        function toggleChat() {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.classList.toggle('hidden');
+        }
+
+        // Simulated Chatbot responses
+        function simulateChatResponse(choice) {
+            const area = document.getElementById('chat-response-area');
+            
+            if (choice === 1) {
+                area.innerHTML = `
+                    <div class="flex gap-2 justify-end">
+                        <div class="bg-indigo-50 p-2 rounded-l-lg rounded-br-lg text-slate-700 text-right">
+                            "Comment gérez-vous un pic d'incidents ?"
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <div class="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] shrink-0">NR</div>
+                        <div class="bg-slate-100 p-2 rounded-r-lg rounded-bl-lg text-slate-700">
+                            En helpdesk d'entreprise, un pic d'incidents (exemple: panne réseau générale) se gère via : 1) La création d'un ticket 'Master' pour regrouper les doublons, 2) La priorisation selon l'impact business, et 3) L'information transparente auprès des utilisateurs. J'applique cette même rigueur en cas de panne sur votre boutique ou votre application.
+                        </div>
+                    </div>
+                `;
+            } else if (choice === 2) {
+                area.innerHTML = `
+                    <div class="flex gap-2 justify-end">
+                        <div class="bg-indigo-50 p-2 rounded-l-lg rounded-br-lg text-slate-700 text-right">
+                            "Quels sont vos tarifs indicatifs ?"
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <div class="w-6 h-6 rounded-full bg-brand-500 text-white flex items-center justify-center text-[10px] shrink-0">NR</div>
+                        <div class="bg-slate-100 p-2 rounded-r-lg rounded-bl-lg text-slate-700">
+                            Je propose des forfaits mensuels basés sur vos volumes d'activité moyens, ou un tarif journalier à définir ensemble selon vos besoins d'onboarding utilisateur et de résolution technique. Discutons-en par mail ou sur LinkedIn !
+                        </div>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
